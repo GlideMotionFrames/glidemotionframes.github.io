@@ -19,9 +19,16 @@
             height: 100vh;
             overflow: hidden;
         }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
         .social-icons {
             display: flex;
-            justify-content: center;
             gap: 20px;
             margin-top: 20px;
         }
@@ -32,13 +39,12 @@
         }
         .social-icons img {
             width: 100%;
-            height: 100%;
+            height: auto;
             border-radius: 10px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.3s ease;
         }
         .social-icons img:hover {
             transform: scale(1.1);
-            opacity: 0.8;
         }
     </style>
 </head>
