@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glide MotionFrames - Coming Soon</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <!-- Font Awesomeの読み込み -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* 全体のレイアウトとデザイン */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             background-image: url('https://github.com/GlideMotionFrames/glidemotionframes.github.io/blob/main/IMG_0694.jpg?raw=true');
             background-size: cover;
             background-position: center;
@@ -28,70 +25,49 @@
             height: 100vh;
             overflow: hidden;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-            scroll-behavior: smooth;
         }
-
-        /* タイトル */
         h1 {
-            font-size: 2.5em;
+            font-size: 4em;
             font-weight: bold;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+            letter-spacing: -0.05em;
+            animation: fadeIn 1.5s ease-out forwards;
         }
-
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
-        /* "Coming Soon"とドットアニメーション */
         .loading {
             font-size: 1.2em;
             margin-top: 10px;
+            animation: fadeIn 1.5s ease-out 1.5s forwards;
         }
-
         .dots {
             display: inline-block;
             text-align: left;
+            animation: dots 1.5s infinite steps(3);
         }
-
         @keyframes dots {
             0% { content: ""; }
             33% { content: "."; }
             66% { content: ".."; }
             100% { content: "..."; }
         }
-
-        /* SNSアイコン */
         .social-icons {
             display: flex;
             gap: 40px;
-            margin-top: 20px;
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-out 2s forwards;
         }
-
         .social-icons a {
             font-size: 3em;
             color: #ffffff;
             text-decoration: none;
             transition: transform 0.3s ease, color 0.3s ease;
         }
-
         .social-icons a:hover {
             transform: scale(1.2);
             color: #dddddd;
         }
-
-        /* フェードイン効果 */
-        .social-icons a {
-            opacity: 0;
-            animation: fadeInIcons 2s forwards 1.5s;
-        }
-
-        @keyframes fadeInIcons {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
     </style>
 </head>
 <body>
@@ -108,16 +84,5 @@
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <script>
-        function animateDots() {
-            const dots = document.querySelector(".dots");
-            let count = 0;
-            setInterval(() => {
-                count = (count + 1) % 4;
-                dots.textContent = "".padEnd(count, ".");
-            }, 500);
-        }
-        animateDots();
-    </script>
 </body>
 </html>
