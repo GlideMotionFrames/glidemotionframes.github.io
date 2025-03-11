@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glide MotionFrames - Coming Soon</title>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -17,66 +18,54 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
         }
         h1 {
             font-size: 2.5em;
             font-weight: bold;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1.5s ease-out forwards;
         }
         p {
             font-size: 1.2em;
             margin-top: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1.5s ease-out forwards;
-            animation-delay: 0.5s;
         }
-        .button-container {
-            margin-top: 20px;
+        .social-buttons {
             display: flex;
             gap: 15px;
+            margin-top: 20px;
         }
-        .button {
+        .social-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             padding: 12px 24px;
             font-size: 1em;
             color: #000;
             border: 2px solid #000;
             text-decoration: none;
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1.5s ease-out forwards;
-            animation-delay: 1s;
+            border-radius: 30px;
             transition: all 0.3s ease;
-            border-radius: 5px;
         }
-        .button:hover {
+        .social-button i {
+            font-size: 1.5em;
+        }
+        .social-button:hover {
             background-color: #000;
             color: #fff;
-            transform: scale(1.05);
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
     </style>
 </head>
 <body>
     <h1>Glide MotionFrames</h1>
     <p>Coming Soon...</p>
-    <div class="button-container">
-        <a href="https://www.instagram.com/glide_motionframes?igsh=b295OXkwNzF1bGZu&utm_source=qr" class="button" target="_blank">Instagram</a>
-        <a href="https://x.com/gmotionframes?s=21" class="button" target="_blank">X</a>
-        <a href="https://www.tiktok.com/@vortexflameworks.com?_t=ZS-8uaxZdiYKNL&_r=1" class="button" target="_blank">TikTok</a>
+    <div class="social-buttons">
+        <a href="https://www.instagram.com/glide_motionframes" class="social-button">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://x.com/gmotionframes" class="social-button">
+            <i class="fab fa-x-twitter"></i> X
+        </a>
+        <a href="https://www.tiktok.com/@vortexflameworks.com" class="social-button">
+            <i class="fab fa-tiktok"></i> TikTok
+        </a>
     </div>
 </body>
 </html>
