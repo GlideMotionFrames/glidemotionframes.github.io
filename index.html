@@ -28,12 +28,13 @@
         .loading {
             font-size: 1.2em;
             margin-top: 10px;
-            display: flex;
-            align-items: center;
         }
-        .dots::after {
-            content: "";
-            animation: dots 1.5s infinite steps(1);
+        .dots {
+            display: inline-block;
+            width: 1em;
+            text-align: left;
+            overflow: hidden;
+            animation: dots 1.5s infinite steps(3);
         }
         @keyframes dots {
             0% { content: ""; }
@@ -60,7 +61,7 @@
 </head>
 <body>
     <h1>Glide MotionFrames</h1>
-    <p class="loading">Coming Soon<span class="dots"></span></p>
+    <p class="loading">Coming Soon<span class="dots">...</span></p>
     <div class="social-icons">
         <a href="https://www.instagram.com/glide_motionframes" target="_blank">
             <i class="fa-brands fa-instagram"></i>
@@ -72,5 +73,16 @@
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
+    <script>
+        function animateDots() {
+            const dots = document.querySelector(".dots");
+            let count = 0;
+            setInterval(() => {
+                count = (count + 1) % 4;
+                dots.textContent = ".".repeat(count);
+            }, 500);
+        }
+        animateDots();
+    </script>
 </body>
 </html>
