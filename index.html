@@ -9,8 +9,9 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
+            background: url('IMG_0694.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -24,6 +25,17 @@
         h1 {
             font-size: 2.5em;
             font-weight: bold;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .loading {
             font-size: 1.2em;
@@ -31,13 +43,13 @@
         }
         .dots::after {
             content: "...";
-            animation: dots 1.5s infinite steps(3);
+            animation: dots 1.5s infinite;
         }
         @keyframes dots {
-            0% { content: "."; }
-            33% { content: ".."; }
-            66% { content: "..."; }
-            100% { content: ""; }
+            0% { content: ""; }
+            33% { content: "."; }
+            66% { content: ".."; }
+            100% { content: "..."; }
         }
         .social-icons {
             display: flex;
@@ -46,13 +58,13 @@
         }
         .social-icons a {
             font-size: 3em;
-            color: #000;
+            color: #ffffff;
             text-decoration: none;
             transition: transform 0.3s ease, color 0.3s ease;
         }
         .social-icons a:hover {
             transform: scale(1.2);
-            color: #777;
+            color: #dddddd;
         }
     </style>
 </head>
