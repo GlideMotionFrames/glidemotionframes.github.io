@@ -7,14 +7,13 @@
     <!-- Font Awesomeの読み込み -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* 全体のレイアウト */
         body {
             font-family: 'Arial', sans-serif;
             background-image: url('https://github.com/GlideMotionFrames/glidemotionframes.github.io/blob/main/IMG_0694.jpg?raw=true');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-blend-mode: overlay; 
+            background-blend-mode: overlay; /* 背景をよりダークにする */
             color: #ffffff;
             text-align: center;
             margin: 0;
@@ -25,45 +24,35 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* より強いテキストシャドウ */
             transition: background-color 1s ease;
         }
-
-        /* ヘッディングのデザイン */
         h1 {
             font-size: 4em;
             font-weight: bold;
             letter-spacing: -0.05em;
             animation: fadeIn 1.5s ease-out forwards;
-            color: white;
         }
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(50px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
-        /* "Coming Soon" テキストのスタイル */
         .loading {
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin-top: 10px;
             animation: fadeIn 1.5s ease-out 1.5s forwards;
         }
-
-        /* ドットのアニメーション */
         .dots {
             display: inline-block;
             text-align: left;
             animation: dots 1.5s infinite steps(3);
         }
-
         @keyframes dots {
             0% { content: ""; }
             33% { content: "."; }
             66% { content: ".."; }
             100% { content: "..."; }
         }
-
-        /* SNSアイコン */
         .social-icons {
             display: flex;
             gap: 40px;
@@ -74,23 +63,23 @@
             font-size: 3em;
             color: #ffffff;
             text-decoration: none;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease, scale 0.3s ease;
         }
-
-        /* ホバー時のアニメーション */
         .social-icons a:hover {
             transform: scale(1.2);
             color: #dddddd;
         }
 
-        /* センター寄せ */
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* スクロール時のアニメーション */
+        .fade-in-scroll {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
         }
 
-        /* パララックス効果 */
+        /* パララックス背景効果 */
         .parallax {
             position: fixed;
             top: 0;
@@ -105,28 +94,13 @@
             z-index: -1;
         }
 
-        /* ボタン */
-        .cta-button {
-            margin-top: 30px;
-            padding: 10px 30px;
-            font-size: 1.2em;
-            background-color: rgba(255, 255, 255, 0.8);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
     </style>
 </head>
 <body>
     <div class="parallax"></div>
-    <h1>Glide MotionFrames</h1>
-    <p class="loading">Coming Soon<span class="dots">...</span></p>
-    <div class="social-icons">
+    <h1 class="fade-in-scroll">Glide MotionFrames</h1>
+    <p class="loading fade-in-scroll">Coming Soon<span class="dots">...</span></p>
+    <div class="social-icons fade-in-scroll">
         <a href="https://www.instagram.com/glide_motionframes" target="_blank">
             <i class="fa-brands fa-instagram"></i>
         </a>
@@ -137,10 +111,9 @@
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <button class="cta-button">Get in Touch</button>
 
     <script>
-        // ドットアニメーション
+        // ドットのアニメーション
         function animateDots() {
             const dots = document.querySelector(".dots");
             let count = 0;
@@ -150,6 +123,19 @@
             }, 500);
         }
         animateDots();
+
+        // スクロール時のアニメーション
+        const fadeInElements = document.querySelectorAll('.fade-in-scroll');
+        const handleScroll = () => {
+            fadeInElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // 最初の表示をチェック
     </script>
 </body>
 </html>
