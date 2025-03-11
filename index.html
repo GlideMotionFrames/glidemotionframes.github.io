@@ -25,6 +25,7 @@
             height: 100vh;
             overflow: hidden;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            transition: background-color 1s ease;
         }
         h1 {
             font-size: 4em;
@@ -62,18 +63,44 @@
             font-size: 3em;
             color: #ffffff;
             text-decoration: none;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease, scale 0.3s ease;
         }
         .social-icons a:hover {
             transform: scale(1.2);
             color: #dddddd;
         }
+
+        /* スクロール時のアニメーション */
+        .fade-in-scroll {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+        }
+
+        /* パララックス背景効果 */
+        .parallax {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://github.com/GlideMotionFrames/glidemotionframes.github.io/blob/main/IMG_0694.jpg?raw=true');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            filter: brightness(0.5);
+            z-index: -1;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Glide MotionFrames</h1>
-    <p class="loading">Coming Soon<span class="dots">...</span></p>
-    <div class="social-icons">
+    <div class="parallax"></div>
+    <h1 class="fade-in-scroll">Glide MotionFrames</h1>
+    <p class="loading fade-in-scroll">Coming Soon<span class="dots">...</span></p>
+    <div class="social-icons fade-in-scroll">
         <a href="https://www.instagram.com/glide_motionframes" target="_blank">
             <i class="fa-brands fa-instagram"></i>
         </a>
@@ -84,5 +111,31 @@
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
+
+    <script>
+        // ドットのアニメーション
+        function animateDots() {
+            const dots = document.querySelector(".dots");
+            let count = 0;
+            setInterval(() => {
+                count = (count + 1) % 4;
+                dots.textContent = "".padEnd(count, ".");
+            }, 500);
+        }
+        animateDots();
+
+        // スクロール時のアニメーション
+        const fadeInElements = document.querySelectorAll('.fade-in-scroll');
+        const handleScroll = () => {
+            fadeInElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // 最初の表示をチェック
+    </script>
 </body>
 </html>
