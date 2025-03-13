@@ -50,8 +50,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Works セクション */
@@ -172,7 +172,7 @@
         AOS.init();
 
         gsap.fromTo("#hero-title", 
-            { opacity: 0, y: 20 }, 
+            { opacity: 1, y: 0 }, 
             { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }
         );
 
