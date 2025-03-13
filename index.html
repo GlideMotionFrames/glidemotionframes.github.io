@@ -24,6 +24,23 @@
             overflow-x: hidden;
         }
 
+        /* ナビゲーションバー */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .navbar img {
+            width: 150px; /* ロゴサイズ調整 */
+            height: auto;
+        }
+
         /* Hero セクション */
         .hero {
             position: relative;
@@ -45,13 +62,9 @@
             position: relative;
             z-index: 1;
         }
-        h1 {
-            font-size: 5vw;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            opacity: 1;
-            transform: translateY(0);
+        .hero-content img {
+            width: 300px; /* ヒーローセクションのロゴサイズ */
+            height: auto;
         }
 
         /* Works セクション */
@@ -122,19 +135,30 @@
             color: #dddddd;
         }
 
-        /* GSAP スクロールアニメーション */
-        .hidden {
-            opacity: 0;
-            transform: translateY(50px);
+        /* フッターロゴ */
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .footer-logo img {
+            width: 150px;
+            height: auto;
         }
     </style>
 </head>
 <body>
+
+    <!-- ナビゲーションバー -->
+    <div class="navbar">
+        <img src="glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
+    </div>
+
     <!-- Hero セクション -->
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 id="hero-title">Glide MotionFrames</h1>
+            <img src="glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
             <p>Creating Cinematic Experiences</p>
         </div>
     </section>
@@ -152,6 +176,9 @@
 
     <!-- Contact セクション -->
     <section class="contact">
+        <div class="footer-logo">
+            <img src="glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
+        </div>
         <h2 data-aos="fade-up">Contact</h2>
         <div class="social-icons">
             <a href="https://www.instagram.com/glide_motionframes" target="_blank"><i class="fa-brands fa-instagram"></i></a>
