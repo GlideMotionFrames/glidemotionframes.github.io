@@ -24,21 +24,21 @@
             overflow-x: hidden;
         }
 
-        /* ナビゲーションバー */
+        /* ヘッダー（ナビゲーションバー） */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 15px 0;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            padding: 10px 0;
             z-index: 1000;
         }
-        .navbar img {
-            width: 150px; /* ロゴサイズ調整 */
-            height: auto;
+        .logo {
+            height: 50px;
         }
 
         /* Hero セクション */
@@ -62,9 +62,9 @@
             position: relative;
             z-index: 1;
         }
-        .hero-content img {
-            width: 300px; /* ヒーローセクションのロゴサイズ */
-            height: auto;
+        .hero-logo {
+            width: 300px;
+            max-width: 80%;
         }
 
         /* Works セクション */
@@ -135,30 +135,34 @@
             color: #dddddd;
         }
 
-        /* フッターロゴ */
+        /* フッターのロゴ */
         .footer-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+            text-align: center;
+            padding: 20px 0;
         }
         .footer-logo img {
-            width: 150px;
-            height: auto;
+            width: 200px;
+        }
+
+        /* GSAP スクロールアニメーション */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
         }
     </style>
 </head>
 <body>
 
-    <!-- ナビゲーションバー -->
-    <div class="navbar">
-        <img src="glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
-    </div>
+    <!-- ヘッダー（ナビゲーションバー） -->
+    <header class="navbar">
+        <img src="https://glidemotionframes.github.io/glide-motionframes-logo.svg" alt="Glide MotionFrames Logo" class="logo">
+    </header>
 
     <!-- Hero セクション -->
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
+            <img src="https://glidemotionframes.github.io/glide-motionframes-logo.svg" alt="Glide MotionFrames Logo" class="hero-logo">
             <p>Creating Cinematic Experiences</p>
         </div>
     </section>
@@ -177,7 +181,7 @@
     <!-- Contact セクション -->
     <section class="contact">
         <div class="footer-logo">
-            <img src="glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
+            <img src="https://glidemotionframes.github.io/glide-motionframes-logo.svg" alt="Glide MotionFrames Logo">
         </div>
         <h2 data-aos="fade-up">Contact</h2>
         <div class="social-icons">
@@ -202,10 +206,6 @@
             { opacity: 1, y: 0 }, 
             { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }
         );
-
-        gsap.utils.toArray('.hidden').forEach((element) => {
-            gsap.to(element, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 80%" } });
-        });
     </script>
 </body>
 </html>
