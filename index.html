@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero セクション（背景に映像） */
+        /* Hero セクション */
         .hero {
             position: relative;
             width: 100%;
@@ -32,15 +32,13 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            background: url('https://github.com/GlideMotionFrames/glidemotionframes.github.io/blob/main/IMG_0694.jpg?raw=true') no-repeat center center/cover;
         }
-        .hero video {
+        .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
+            background-color: rgba(0, 0, 0, 0.4);
         }
         .hero-content {
             position: relative;
@@ -64,12 +62,13 @@
             position: relative;
             overflow: hidden;
         }
-        .work-item video {
+        .work-item img {
             width: 100%;
-            height: auto;
+            max-width: 600px;
             transition: transform 0.3s ease;
+            border-radius: 5px;
         }
-        .work-item:hover video {
+        .work-item:hover img {
             transform: scale(1.05);
         }
         .work-title {
@@ -125,10 +124,7 @@
 <body>
     <!-- Hero セクション -->
     <section class="hero">
-        <video autoplay muted loop>
-            <source src="https://yourvideo.mp4" type="video/mp4">
-            <source src="https://yourvideo.webm" type="video/webm">
-        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Glide MotionFrames</h1>
             <p>Creating Cinematic Experiences</p>
@@ -137,27 +133,28 @@
 
     <!-- Works セクション -->
     <section class="works container">
+        <h2 data-aos="fade-up">Works</h2>
         <div class="work-item hidden">
-            <video src="https://yourvideo1.mp4" autoplay muted loop></video>
+            <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
             <p class="work-title">Project Name 1</p>
         </div>
         <div class="work-item hidden">
-            <video src="https://yourvideo2.mp4" autoplay muted loop></video>
+            <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
             <p class="work-title">Project Name 2</p>
         </div>
     </section>
 
     <!-- Contact セクション -->
     <section class="contact">
-        <h2>Contact</h2>
+        <h2 data-aos="fade-up">Contact</h2>
         <p class="contact-info">
             📩 <a href="mailto:contact@glidemotionframes.com">contact@glidemotionframes.com</a><br>
             📞 <a href="tel:07023236932">070-2323-6932</a>
         </p>
         <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/glide_motionframes" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/gmotionframes" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@vortexflameworks.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
         </div>
     </section>
 
