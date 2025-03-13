@@ -47,14 +47,14 @@
             z-index: 1;
         }
         h1 {
-            font-size: 5vw;
+            font-size: 6vw;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            color: #fff;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* 背景と同化しないように影を強化 */
             opacity: 0;
             transform: translateY(50px);
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
         .hero-subtitle {
             font-size: 1.5vw;
@@ -62,33 +62,34 @@
             transform: translateY(50px);
         }
 
-        /* Works セクション */
-        .works {
-            padding: 120px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .work-item {
-            position: relative;
-            overflow: hidden;
-            perspective: 1000px;
-        }
-        .work-item img {
-            width: 100%;
-            max-width: 600px;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            border-radius: 5px;
-        }
-        .work-item:hover img {
-            transform: scale(1.05) rotateY(10deg);
-            opacity: 0.8;
-        }
-
-        /* Contact & SNS (変更なし、完璧なまま) */
+        /* Contact & SNS（完全に白いデザインに戻す） */
         .contact {
-            padding: 100px 5%;
-            background: #111;
+            padding: 80px 5%;
+            background: #fff;
+            color: #000;
+        }
+        .contact h2 {
+            color: #000;
+        }
+        .social-icons a {
+            font-size: 2em;
+            color: #000;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #444;
+        }
+        .contact-info a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info a:hover {
+            color: #444;
         }
 
         /* GSAP スクロールアニメーション */
@@ -103,23 +104,12 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 id="hero-title">Glide MotionFrames</h1>
+            <h1 id="hero-title">GLIDE MOTIONFRAMES</h1>
             <p id="hero-subtitle" class="hero-subtitle">Creating Cinematic Experiences</p>
         </div>
     </section>
 
-    <!-- Works セクション -->
-    <section class="works container">
-        <h2 data-aos="fade-up">Works</h2>
-        <div class="work-item hidden">
-            <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
-        </div>
-        <div class="work-item hidden">
-            <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
-        </div>
-    </section>
-
-    <!-- Contact & SNS (絶対に変更しない) -->
+    <!-- Contact & SNS（完全に元に戻す） -->
     <section class="contact">
         <h2 data-aos="fade-up">Contact</h2>
         <div class="social-icons">
