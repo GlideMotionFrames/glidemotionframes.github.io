@@ -57,22 +57,13 @@
         /* Works セクション */
         .works {
             padding: 120px 5%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            width: 80%;
-            max-width: 1200px;
         }
         .work-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
         }
         .work-item img {
             width: 100%;
@@ -83,6 +74,58 @@
         .work-item:hover img {
             transform: scale(1.05);
             opacity: 0.8;
+        }
+
+        /* Contact セクション */
+        .contact {
+            padding: 80px 5%;
+            background: #111;
+        }
+        .contact-info {
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info a:hover {
+            color: #aaa;
+        }
+        .contact-info i {
+            font-size: 1.2em;
+        }
+
+        /* SNSアイコン */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .social-icons a {
+            font-size: 2em;
+            color: #ffffff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #dddddd;
+        }
+
+        /* GSAP スクロールアニメーション */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
         }
     </style>
 </head>
@@ -97,19 +140,17 @@
     </section>
 
     <!-- Works セクション -->
-    <section class="works">
+    <section class="works container">
         <h2 data-aos="fade-up">Works</h2>
-        <div class="works-grid">
-            <div class="work-item hidden">
-                <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
-            </div>
-            <div class="work-item hidden">
-                <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
-            </div>
+        <div class="work-item hidden">
+            <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
+        </div>
+        <div class="work-item hidden">
+            <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
         </div>
     </section>
 
-    <!-- Contact セクション（そのまま保持） -->
+    <!-- Contact セクション -->
     <section class="contact">
         <h2 data-aos="fade-up">Contact</h2>
         <div class="social-icons">
