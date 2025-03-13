@@ -46,7 +46,7 @@
             z-index: 1;
         }
         h1 {
-            font-size: 4vw;
+            font-size: 5vw;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -57,13 +57,22 @@
         /* Works セクション */
         .works {
             padding: 120px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            width: 80%;
+            max-width: 1200px;
         }
         .work-item {
             position: relative;
             overflow: hidden;
+            border-radius: 10px;
         }
         .work-item img {
             width: 100%;
@@ -72,16 +81,9 @@
             border-radius: 5px;
         }
         .work-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
             opacity: 0.8;
         }
-
-        /* Contact セクション */
-        .contact {
-            padding: 80px 5%;
-            background: #111;
-        }
-
     </style>
 </head>
 <body>
@@ -95,17 +97,19 @@
     </section>
 
     <!-- Works セクション -->
-    <section class="works container">
+    <section class="works">
         <h2 data-aos="fade-up">Works</h2>
-        <div class="work-item hidden">
-            <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
-        </div>
-        <div class="work-item hidden">
-            <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
+        <div class="works-grid">
+            <div class="work-item hidden">
+                <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
+            </div>
+            <div class="work-item hidden">
+                <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
+            </div>
         </div>
     </section>
 
-    <!-- Contact セクション -->
+    <!-- Contact セクション（そのまま保持） -->
     <section class="contact">
         <h2 data-aos="fade-up">Contact</h2>
         <div class="social-icons">
