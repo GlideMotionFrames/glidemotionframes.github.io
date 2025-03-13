@@ -39,19 +39,19 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.3);
         }
         .hero-content {
             position: relative;
             z-index: 1;
         }
         h1 {
-            font-size: 5vw;
+            font-size: 6vw;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(50px);
         }
 
         /* Works セクション */
@@ -64,6 +64,7 @@
         .work-item {
             position: relative;
             overflow: hidden;
+            perspective: 1000px;
         }
         .work-item img {
             width: 100%;
@@ -72,7 +73,7 @@
             border-radius: 5px;
         }
         .work-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.05) rotateY(10deg);
             opacity: 0.8;
         }
 
@@ -81,52 +82,13 @@
             padding: 80px 5%;
             background: #111;
         }
-        .contact-info {
-            font-size: 1em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .contact-info a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .contact-info a:hover {
-            color: #aaa;
-        }
-        .contact-info i {
-            font-size: 1.2em;
-        }
-
-        /* SNSアイコン */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .social-icons a {
-            font-size: 2em;
-            color: #ffffff;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .social-icons a:hover {
-            transform: scale(1.2);
-            color: #dddddd;
-        }
 
         /* GSAP スクロールアニメーション */
         .hidden {
             opacity: 0;
             transform: translateY(50px);
         }
+
     </style>
 </head>
 <body>
@@ -135,7 +97,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 id="hero-title">Glide MotionFrames</h1>
-            <p>Creating Cinematic Experiences</p>
+            <p id="hero-subtitle">Creating Cinematic Experiences</p>
         </div>
     </section>
 
@@ -171,13 +133,24 @@
     <script>
         AOS.init();
 
-        gsap.fromTo("#hero-title", 
-            { opacity: 0, y: 20 }, 
-            { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }
-        );
+        // Heroタイトルのフェードイン
+        gsap.to("#hero-title", { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" });
+        gsap.to("#hero-subtitle", { opacity: 1, y: 0, duration: 1.8, ease: "power3.out", delay: 0.3 });
 
+        // スクロール時のアニメーション
         gsap.utils.toArray('.hidden').forEach((element) => {
             gsap.to(element, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 80%" } });
+        });
+
+        // 背景のパララックス効果
+        gsap.to(".hero", {
+            backgroundPosition: "center 10%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                scrub: true
+            }
         });
     </script>
 </body>
