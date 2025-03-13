@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glide MotionFrames</title>
+    <meta name="description" content="Glide MotionFrames は、映像編集を専門とするフリーランスクリエイターが運営するポストプロダクションサービスです。" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
@@ -148,12 +149,9 @@
     </style>
 </head>
 <body>
-    <!-- ヘッダー（固定ナビゲーションバー） -->
     <header class="header">
         <img src="https://raw.githubusercontent.com/GlideMotionFrames/glidemotionframes.github.io/main/logo-white.svg" alt="Glide MotionFrames">
     </header>
-
-    <!-- Hero セクション -->
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -161,40 +159,8 @@
             <p>Creating Cinematic Experiences</p>
         </div>
     </section>
-
-    <!-- Works セクション -->
-    <section class="works container">
-        <h2 data-aos="fade-up">Works</h2>
-        <div class="work-item hidden">
-            <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
-        </div>
-        <div class="work-item hidden">
-            <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
-        </div>
-    </section>
-
-    <!-- Contact セクション -->
-    <section class="contact">
-        <img src="https://raw.githubusercontent.com/GlideMotionFrames/glidemotionframes.github.io/main/logo-white.svg" alt="Glide MotionFrames" class="footer-logo">
-        <h2 data-aos="fade-up">Contact</h2>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/glide_motionframes" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://x.com/gmotionframes" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.tiktok.com/@vortexflameworks.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-        <div class="contact-info">
-            <a href="mailto:contact@glidemotionframes.com">
-                <i class="fa-solid fa-envelope"></i> contact@glidemotionframes.com
-            </a>
-            <a href="tel:07023236932">
-                <i class="fa-solid fa-phone"></i> 070-2323-6932
-            </a>
-        </div>
-    </section>
-
     <script>
         AOS.init();
-
         gsap.utils.toArray('.hidden').forEach((element) => {
             gsap.to(element, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 80%" } });
         });
