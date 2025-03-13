@@ -46,15 +46,17 @@
             z-index: 1;
         }
         h1 {
-            font-size: 6vw;
+            font-size: 5vw;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         /* Works セクション */
         .works {
-            padding: 150px 5%;
+            padding: 120px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -70,34 +72,27 @@
             border-radius: 5px;
         }
         .work-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
             opacity: 0.8;
-        }
-        .work-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
         }
 
         /* Contact セクション */
         .contact {
-            padding: 100px 5%;
+            padding: 80px 5%;
             background: #111;
         }
         .contact-info {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 1em;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            margin-top: 20px;
         }
         .contact-info a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.2em;
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -107,18 +102,18 @@
             color: #aaa;
         }
         .contact-info i {
-            font-size: 1.8em;
+            font-size: 1.2em;
         }
 
         /* SNSアイコン */
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 30px;
         }
         .social-icons a {
-            font-size: 2.5em;
+            font-size: 2em;
             color: #ffffff;
             transition: transform 0.3s ease, color 0.3s ease;
         }
@@ -139,7 +134,7 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hidden">Glide MotionFrames</h1>
+            <h1 id="hero-title">Glide MotionFrames</h1>
             <p>Creating Cinematic Experiences</p>
         </div>
     </section>
@@ -149,17 +144,20 @@
         <h2 data-aos="fade-up">Works</h2>
         <div class="work-item hidden">
             <img src="https://source.unsplash.com/600x400/?film,cinema" alt="作品1">
-            <p class="work-title">Project Name 1</p>
         </div>
         <div class="work-item hidden">
             <img src="https://source.unsplash.com/600x400/?motion,design" alt="作品2">
-            <p class="work-title">Project Name 2</p>
         </div>
     </section>
 
     <!-- Contact セクション -->
     <section class="contact">
         <h2 data-aos="fade-up">Contact</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/glide_motionframes" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/gmotionframes" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@vortexflameworks.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
         <div class="contact-info">
             <a href="mailto:contact@glidemotionframes.com">
                 <i class="fa-solid fa-envelope"></i> contact@glidemotionframes.com
@@ -168,15 +166,16 @@
                 <i class="fa-solid fa-phone"></i> 070-2323-6932
             </a>
         </div>
-        <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
     </section>
 
     <script>
         AOS.init();
+
+        gsap.fromTo("#hero-title", 
+            { opacity: 0, y: 20 }, 
+            { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }
+        );
+
         gsap.utils.toArray('.hidden').forEach((element) => {
             gsap.to(element, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 80%" } });
         });
