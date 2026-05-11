@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* ----- ここから動画背景の設定 ----- */
+        /* ----- 背景動画 ----- */
         .video-background {
             position: fixed;
             top: 0;
@@ -51,7 +51,7 @@
             background: rgba(0, 0, 0, 0.65);
         }
 
-        /* ----- ここから中央ロゴ動画の設定 ----- */
+        /* ----- 中央ロゴアニメーション（これだけは黒背景動画なのでmix-blend-mode維持） ----- */
         .hero {
             position: relative;
             width: 100%;
@@ -75,22 +75,22 @@
             pointer-events: none;
         }
 
-        /* ----- ヘッダーの設定 ----- */
+        /* ----- ヘッダー（上のロゴ） ----- */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px 20px;
+            padding: 12px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
         .header img {
-            height: 55px; /* 新しいロゴに合わせて少し大きく */
-            mix-blend-mode: screen; /* スクショの黒背景を消し去る魔法 */
+            height: 38px; /* 透過ロゴをスッキリ見せるサイズ */
+            /* 透過PNGなのでmix-blend-modeは削除 */
         }
 
         .about-section {
@@ -140,10 +140,16 @@
             box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.3);
         }
 
-        /* ----- フッター（連絡先）の設定 ----- */
+        /* ----- フッター（連絡先） ----- */
         .contact {
             padding: 80px 5%;
             background: #050505;
+        }
+        .footer-logo {
+            width: 110px; /* 下の透過ロゴサイズ */
+            margin-bottom: 30px;
+            opacity: 0.7;
+            /* 透過PNGなのでmix-blend-modeは削除 */
         }
         .contact h2 {
             margin-bottom: 20px;
@@ -170,8 +176,7 @@
         }
 
         .social-icons {
-            display: flex;
-            justify-content: center;
+            display: flex;            justify-content: center;
             gap: 20px;
             margin-top: 30px;
         }
@@ -183,13 +188,6 @@
         .social-icons a:hover {
             transform: scale(1.1);
             color: #fff;
-        }
-
-        .footer-logo {
-            width: 120px;
-            margin-bottom: 30px;
-            opacity: 0.6;
-            mix-blend-mode: screen; /* スクショの黒背景を消し去る魔法 */
         }
 
         .hidden {
@@ -208,7 +206,7 @@
     </div>
 
     <header class="header">
-        <img src="logo-new.png" alt="Glide MotionFrames">
+        <img src="logo-v2.png" alt="Glide MotionFrames">
     </header>
 
     <section class="hero">
@@ -242,7 +240,7 @@
     </section>
 
     <section class="contact">
-        <img src="logo-new.png" alt="Glide MotionFrames" class="footer-logo">
+        <img src="logo-v2.png" alt="Glide MotionFrames" class="footer-logo">
         <h2 data-aos="fade-up">Contact</h2>
         <div class="social-icons">
             <a href="https://www.instagram.com/glide_motionframes" target="_blank"><i class="fa-brands fa-instagram"></i></a>
