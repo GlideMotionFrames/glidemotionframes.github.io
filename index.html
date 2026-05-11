@@ -93,17 +93,17 @@
             display: block;
         }
 
-        /* ----- セクション見出し（歪み修正済み） ----- */
+        /* ----- セクション見出し（センター補正済み） ----- */
         h2 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 0.4em;
-            text-indent: 0.4em; /* 字間分を左に押し戻して完全中央へ */
+            /* 修正：字間の余白分を左にズラして完全中央へ */
+            padding-left: 0.4em; 
             font-size: 1.5rem;
             margin-bottom: 40px;
             color: #fff;
-            display: block;
             width: 100%;
         }
 
@@ -159,7 +159,7 @@
             filter: brightness(1.1) grayscale(0%);
         }
 
-        /* ----- フッター（歪み修正済み） ----- */
+        /* ----- フッター（センター補正済み） ----- */
         .contact {
             padding: 120px 5%;
             background: #050505;
@@ -183,7 +183,8 @@
             text-decoration: none;
             font-size: 0.9rem;
             letter-spacing: 0.1em;
-            text-indent: 0.1em; /* ここも字間分を補正 */
+            /* 修正：字間分のズレを補正 */
+            padding-left: 0.1em; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -264,7 +265,7 @@
         <div class="social-icons">
             <a href="https://www.instagram.com/glide_motionframes" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://x.com/gmotionframes" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.tiktok.com/@vortexflameworks.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@glidemotionframes.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
         </div>
         <div class="contact-info">
             <a href="mailto:contact@glidemotionframes.com">
