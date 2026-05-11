@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glide MotionFrames</title>
     <meta name="description" content="Glide MotionFrames は、映像編集を専門とするフリーランスクリエイターが運営するポストプロダクションサービスです。" />
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
@@ -21,7 +19,6 @@
             padding: 0;
         }
         body {
-            /* 全体の基本フォントを少し細身に */
             font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
             background-color: #030303;
             color: #fff;
@@ -78,7 +75,7 @@
             pointer-events: none;
         }
 
-        /* ----- ヘッダー（上のロゴ） ----- */
+        /* ----- ヘッダー ----- */
         .header {
             position: fixed;
             top: 0;
@@ -93,40 +90,33 @@
         }
         .header img {
             height: 38px;
+            display: block;
         }
 
-        /* ----- セクション見出しの共通デザイン（Works / Contactなど） ----- */
+        /* ----- セクション見出し（歪み修正済み） ----- */
         h2 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 0.4em; /* 字間を広く */
+            letter-spacing: 0.4em;
+            text-indent: 0.4em; /* 字間分を左に押し戻して完全中央へ */
             font-size: 1.5rem;
             margin-bottom: 40px;
             color: #fff;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.3);
+            display: block;
+            width: 100%;
         }
 
         /* ----- ディレクターズノート ----- */
         .about-section {
             padding: 120px 5%;
             background: linear-gradient(to bottom, transparent, #0a0a0a 20%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .director-note {
             max-width: 700px;
-            margin: 0 auto;
             text-align: left;
             line-height: 2.2;
             font-size: 0.9rem;
@@ -169,22 +159,23 @@
             filter: brightness(1.1) grayscale(0%);
         }
 
-        /* ----- フッター（連絡先） ----- */
+        /* ----- フッター（歪み修正済み） ----- */
         .contact {
             padding: 120px 5%;
             background: #050505;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .footer-logo {
             width: 110px;
             margin-bottom: 40px;
             opacity: 0.5;
-            transition: 0.5s;
-        }
-        .footer-logo:hover {
-            opacity: 1;
+            display: block;
         }
         .contact-info {
             margin-top: 30px;
+            width: 100%;
         }
         .contact-info a {
             font-family: 'Montserrat', sans-serif;
@@ -192,6 +183,7 @@
             text-decoration: none;
             font-size: 0.9rem;
             letter-spacing: 0.1em;
+            text-indent: 0.1em; /* ここも字間分を補正 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -206,15 +198,16 @@
             justify-content: center;
             gap: 30px;
             margin-top: 40px;
+            width: 100%;
         }
         .social-icons a {
             font-size: 1.4em;
             color: #555;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s ease;
         }
         .social-icons a:hover {
             color: #fff;
-            transform: translateY(-5px) scale(1.1);
+            transform: translateY(-5px);
         }
 
         .hidden {
@@ -245,16 +238,15 @@
     </section>
 
     <section class="about-section">
+        <h2 data-aos="fade-up">Director's Note</h2>
         <div class="director-note hidden">
-            <p><strong>DIRECTOR'S NOTE</strong><br><br>
-            日常の中に潜む「違和感」と、マクロな視点から生まれる「質感」。<br>
+            <p>日常の中に潜む「違和感」と、マクロな視点から生まれる「質感」。<br>
             視覚と聴覚から生理的な感覚に直接介入し、美しさと恐怖が混在するシネマティックな体験を設計する。</p>
         </div>
     </section>
 
     <section class="works container">
         <h2 data-aos="fade-up">Works</h2>
-        
         <div class="work-item hidden">
             <img src="https://source.unsplash.com/600x400/?dark,room,red" alt="The X">
         </div>
@@ -282,10 +274,7 @@
     </section>
 
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        AOS.init({ duration: 1000, once: true });
         gsap.utils.toArray('.hidden').forEach((element) => {
             gsap.to(element, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 90%" } });
         });
